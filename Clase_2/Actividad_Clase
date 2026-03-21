@@ -1,0 +1,81 @@
+Algoritmo CajeroAutomatico
+    // --- 1. Declaración de Variables ---
+    Definir pinIngresado Como Entero
+    Definir pinCorrecto Como Entero
+    Definir saldo Como Real
+    Definir opcion Como Entero
+    Definir monto Como Real
+    
+    // --- 2. Inicialización de Datos (Simulando una cuenta real) ---
+    pinCorrecto <- 1234
+    saldo <- 500000 // Saldo inicial en la cuenta
+    
+    // --- 3. Validación de Seguridad (Entrada) ---
+    Escribir "=== BIENVENIDO AL BANCO SENA ==="
+    Escribir "Por favor, ingrese su PIN de 4 dígitos: "
+    Leer pinIngresado
+    
+    // Verificamos si el PIN es correcto usando una condicional
+    Si pinIngresado == pinCorrecto Entonces
+        
+        // --- 4. Menú Principal ---
+        Escribir ""
+        Escribir "=== MENÚ PRINCIPAL ==="
+        Escribir "1. Consultar Saldo"
+        Escribir "2. Retirar Dinero"
+        Escribir "3. Consignar (Depositar) Dinero"
+        Escribir "4. Salir"
+        Escribir "Elija una opción (1-4): "
+        Leer opcion
+        
+        // --- 5. Procesamiento de la Opción (Estructura SEGÚN) ---
+        Segun opcion Hacer
+            Caso 1:
+                Escribir "Su saldo actual es: $", saldo
+                
+            Caso 2:
+                Escribir "Ingrese el monto a retirar: $"
+                Leer monto
+                
+                // Condicionales anidadas para validar el retiro
+                Si monto <= 0 Entonces
+                    Escribir "Error: El monto debe ser mayor a cero."
+                Sino
+                    Si monto > saldo Entonces
+                        Escribir "Transacción rechazada: Saldo insuficiente."
+                        Escribir "Su saldo actual es: $", saldo
+                    Sino
+                        // Si todo está bien, descontamos el dinero (Acumulador negativo)
+                        saldo <- saldo - monto
+                        Escribir "Retiro exitoso de $", monto
+                        Escribir "Por favor, retire su dinero."
+                        Escribir "Nuevo saldo: $", saldo
+                    FinSi
+                FinSi
+                
+            Caso 3:
+                Escribir "Ingrese el monto a consignar: $"
+                Leer monto
+                
+                Si monto <= 0 Entonces
+                    Escribir "Error: El monto a consignar debe ser mayor a cero."
+                Sino
+                    // Sumamos el dinero a la cuenta (Acumulador)
+                    saldo <- saldo + monto
+                    Escribir "Consignación exitosa."
+                    Escribir "Nuevo saldo: $", saldo
+                FinSi
+                
+            Caso 4:
+                Escribir "Gracias por utilizar nuestros servicios. ¡Que tenga un buen día!"
+                
+            De Otro Modo:
+                Escribir "Error: Opción inválida. Transacción cancelada."
+        FinSegun
+        
+    Sino
+        // Qué pasa si el PIN es incorrecto
+        Escribir "Error: PIN incorrecto. Por su seguridad, la tarjeta ha sido expulsada."
+    FinSi
+
+FinAlgoritmo

@@ -1,0 +1,48 @@
+Algoritmo CajeroCorto
+    Definir saldoActual Como Real
+    Definir montoSolicitado Como Real
+    Definir saldoFinal Como Real
+    
+    saldoActual <- 500000 
+    
+    Escribir "Tu saldo actual es: $", saldoActual
+    Escribir "¿Cuánto dinero deseas retirar? $"
+    Leer montoSolicitado
+    
+    Si montoSolicitado <= saldoActual Entonces
+        saldoFinal <- saldoActual - montoSolicitado
+        Escribir "Retiro exitoso. Toma tu dinero."
+        Escribir "Tu saldo final es: $", saldoFinal
+    Sino
+        Escribir "Fondos insuficientes para el retiro."
+    FinSi
+FinAlgoritmo
+
+/*
+=================================================================
+ANÁLISIS PARA EXPLICAR EN CLASE
+=================================================================
+
+1. VARIABLES UTILIZADAS:
+   - saldoActual (Real): Dinero inicial en cuenta (Proceso).
+   - montoSolicitado (Real): Cantidad que el usuario digita (Entrada).
+   - saldoFinal (Real): Dinero restante tras el retiro (Salida).
+
+2. OPERADORES UTILIZADOS:
+   - Asignación ( <- ): Guarda un valor en la variable.
+   - Relacional ( <= ): "Menor o igual que", valida si se puede matemáticamente hacer el retiro.
+   - Aritmético ( - ): Resta para calcular nuevo saldo.
+
+3. LÓGICA ESTRUCTURAL:
+   - Secuencial: Lee línea por línea de arriba a abajo.
+   - Condicional Simple (Si...Sino): Bloqueador lógico que evalúa primero si matemáticamente tienes más o igual monto que el solicitado, para permitir hacer la resta.
+
+4. MODELO DE PROCESAMIENTO DE LA INFORMACIÓN (E-P-S):
+   (De acuerdo al módulo visto en la Clase 2)
+   
+   - ENTRADA: Es el momento en que el sistema solicita y recibe datos externos. Aquí la entrada ocurre en la instrucción `Leer montoSolicitado`. Sin este valor digitado por el usuario, el cajero no puede hacer nada.
+   
+   - PROCESO: Son las operaciones lógicas y matemáticas (lo que el computador "piensa" en secreto). El proceso en este algoritmo consta de dos pasos: la decisión lógica (`Si montoSolicitado <= saldoActual`) y el cálculo matemático (`saldoFinal <- saldoActual - montoSolicitado`).
+   
+   - SALIDA: Es el resultado informativo que el programa devuelve al usuario. Aquí las salidas de datos se generan mediante el comando `Escribir`, mostrando textos de éxito, mensajes de error y variables resultantes (Ej: `"Tu saldo final es: $", saldoFinal`).
+*/
