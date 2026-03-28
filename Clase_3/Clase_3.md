@@ -133,8 +133,19 @@ FinAlgoritmo
 Algoritmo DescuentoMembresia
     Definir precio, precioFinal Como Real
     Definir esMiembro Como Logico
+    Definir entrada Como Caracter
+    
+    Escribir "Ingrese el precio del producto:"
     Leer precio
-    Leer esMiembro
+    
+    Escribir "¿El cliente es miembro? (S/N):"
+    Leer entrada
+    
+    Si entrada = "S" O entrada = "s" Entonces
+        esMiembro <- Verdadero
+    Sino
+        esMiembro <- Falso
+    FinSi
     
     precioFinal <- precio
     
