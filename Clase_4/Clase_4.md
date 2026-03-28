@@ -1,4 +1,4 @@
-# 🖥️ CLASE 4 — Estructura de Casos (SEGÚN / CASE)
+# 🖥️ CLASE 4 — Estructura de Casos (Segun / CASE)
 
 **Curso:** Fundamentos Algorítmicos 1  
 **Programa:** Análisis y Programación de Computadores  
@@ -13,8 +13,8 @@ Antes de avanzar a la estructura de casos, consolidemos lo aprendido en la **Cla
 
 | Tema | Puntos clave |
 |---|---|
-| **Condicional Simple** | `SI condición ENTONCES ... FIN_SI` — Ejecuta un bloque solo si la condición es Verdadera |
-| **Condicional Compuesta** | `SI condición ENTONCES ... SINO ... FIN_SI` — Siempre ejecuta uno de dos bloques |
+| **Condicional Simple** | `SI condición ENTONCES ... FinSi` — Ejecuta un bloque solo si la condición es Verdadera |
+| **Condicional Compuesta** | `SI condición ENTONCES ... SINO ... FinSi` — Siempre ejecuta uno de dos bloques |
 | **Condicionales Anidadas** | SI dentro de otro SI — Permiten clasificar múltiples rangos o condiciones jerarquizadas |
 | **Condiciones con AND / OR** | Combinan varias condiciones en una sola expresión lógica |
 | **Prueba de escritorio con condicionales** | Rastrear qué bloque se ejecuta para cada posible valor de entrada |
@@ -27,9 +27,9 @@ Antes de avanzar a la estructura de casos, consolidemos lo aprendido en la **Cla
 ## 📋 Contenidos de la Clase
 
 1. [Limitaciones de las Condicionales Anidadas](#1-limitaciones-de-las-condicionales-anidadas)
-2. [Estructura de Casos: SEGÚN (CASE/SWITCH)](#2-estructura-de-casos-según-caseswitch)
+2. [Estructura de Casos: Segun (CASE/SWITCH)](#2-estructura-de-casos-según-caseswitch)
 3. [Características y Reglas del SEGÚN](#3-características-y-reglas-del-según)
-4. [Comparación: SEGÚN vs. Condicionales Anidadas](#4-comparación-según-vs-condicionales-anidadas)
+4. [Comparación: Segun vs. Condicionales Anidadas](#4-comparación-según-vs-condicionales-anidadas)
 5. [Ejemplos Avanzados](#5-ejemplos-avanzados)
 6. [Diagrama de Flujo del SEGÚN](#6-diagrama-de-flujo-del-según)
 7. [🎯 Actividad Evaluativa Final](#actividad-evaluativa-final)
@@ -41,29 +41,29 @@ Antes de avanzar a la estructura de casos, consolidemos lo aprendido en la **Cla
 Imagina que debes crear un menú con 7 opciones usando condicionales anidadas:
 
 ```
-SI opcion == 1 ENTONCES
+SI opcion == 1 Entonces
   ESCRIBIR "Opción 1"
 SINO
-  SI opcion == 2 ENTONCES
+  SI opcion == 2 Entonces
     ESCRIBIR "Opción 2"
-  SINO
-    SI opcion == 3 ENTONCES
+  Sino
+    SI opcion == 3 Entonces
       ESCRIBIR "Opción 3"
-    SINO
-      SI opcion == 4 ENTONCES
+    Sino
+      SI opcion == 4 Entonces
         ... (siguen más niveles)
 ```
 
 Este código se vuelve:
 - 🔴 **Difícil de leer:** Muchos niveles de indentado.
-- 🔴 **Propenso a errores:** Es fácil olvidar un `FIN_SI`.
+- 🔴 **Propenso a errores:** Es fácil olvidar un `FinSi`.
 - 🔴 **Difícil de mantener:** Agregar u quitar una opción implica reestructurar todo.
 
 Para este problema existe una solución más elegante: la **estructura de casos**.
 
 ---
 
-## 2. Estructura de Casos: SEGÚN (CASE/SWITCH)
+## 2. Estructura de Casos: Segun (CASE/SWITCH)
 
 ### 2.1 Definición
 
@@ -74,7 +74,7 @@ La **estructura de casos** (llamada `SEGÚN`, `CASE` o `SWITCH` según el lengua
 ### 2.2 Estructura General
 
 ```
-SEGÚN <variable> HACER
+Segun <variable> HACER
   CASO valor1:
     // Instrucciones para el caso 1
   CASO valor2:
@@ -82,17 +82,17 @@ SEGÚN <variable> HACER
   CASO valor3:
     // Instrucciones para el caso 3
   ...
-  DE_OTRO_MODO:
+  De Otro Modo:
     // Instrucciones si ningún caso coincide (opcional pero recomendado)
-FIN_SEGÚN
+FinSegun
 ```
 
 | Componente | Función |
 |---|---|
-| `SEGÚN <variable>` | Indica qué variable se va a evaluar |
+| `Segun <variable>` | Indica qué variable se va a evaluar |
 | `CASO valor:` | Define un valor específico a comparar |
-| `DE_OTRO_MODO:` | Bloque que se ejecuta si ningún caso coincidió (equivale al `SINO` final) |
-| `FIN_SEGÚN` | Cierra la estructura |
+| `De Otro Modo:` | Bloque que se ejecuta si ningún caso coincidió (equivale al `SINO` final) |
+| `FinSegun` | Cierra la estructura |
 
 ### 2.3 Equivalencia en lenguajes reales
 
@@ -114,30 +114,30 @@ FIN_SEGÚN
 
 ---
 
-## 4. Comparación: SEGÚN vs. Condicionales Anidadas
+## 4. Comparación: Segun vs. Condicionales Anidadas
 
 ### Problema: Mostrar el nombre del día según su número (1 al 7)
 
 **Con condicionales anidadas (⚠️ verboso):**
 ```
-SI dia == 1 ENTONCES
+SI dia == 1 Entonces
   ESCRIBIR "Lunes"
 SINO
-  SI dia == 2 ENTONCES
+  SI dia == 2 Entonces
     ESCRIBIR "Martes"
-  SINO
-    SI dia == 3 ENTONCES
+  Sino
+    SI dia == 3 Entonces
       ESCRIBIR "Miércoles"
-    SINO
+    Sino
       ...
-    FIN_SI
-  FIN_SI
-FIN_SI
+    FinSi
+  FinSi
+FinSi
 ```
 
-**Con SEGÚN (✅ limpio y legible):**
+**Con Segun (✅ limpio y legible):**
 ```
-SEGÚN dia HACER
+Segun dia HACER
   CASO 1: ESCRIBIR "Lunes"
   CASO 2: ESCRIBIR "Martes"
   CASO 3: ESCRIBIR "Miércoles"
@@ -145,8 +145,8 @@ SEGÚN dia HACER
   CASO 5: ESCRIBIR "Viernes"
   CASO 6: ESCRIBIR "Sábado"
   CASO 7: ESCRIBIR "Domingo"
-  DE_OTRO_MODO: ESCRIBIR "Número de día inválido (debe ser 1-7)"
-FIN_SEGÚN
+  De Otro Modo: ESCRIBIR "Número de día inválido (debe ser 1-7)"
+FinSegun
 ```
 
 ---
@@ -176,7 +176,7 @@ ALGORITMO Calculadora
     
     valido ← Verdadero
     
-    SEGÚN operacion HACER
+    Segun operacion HACER
       CASO 1:
         resultado ← a + b
         ESCRIBIR a, " + ", b, " = ", resultado
@@ -187,17 +187,17 @@ ALGORITMO Calculadora
         resultado ← a * b
         ESCRIBIR a, " × ", b, " = ", resultado
       CASO 4:
-        SI b == 0 ENTONCES
+        SI b == 0 Entonces
           ESCRIBIR "Error: No se puede dividir por cero."
           valido ← Falso
-        SINO
+        Sino
           resultado ← a / b
           ESCRIBIR a, " ÷ ", b, " = ", resultado
-        FIN_SI
-      DE_OTRO_MODO:
+        FinSi
+      De Otro Modo:
         ESCRIBIR "Opción inválida. Seleccione entre 1 y 4."
         valido ← Falso
-    FIN_SEGÚN
+    FinSegun
   FIN
 ```
 
@@ -231,27 +231,27 @@ ALGORITMO ClasificacionProducto
     ESCRIBIR "Ingrese las unidades en stock: "
     LEER stockUnidades
     
-    SEGÚN codigoCategoria HACER
+    Segun codigoCategoria HACER
       CASO 'A':
         nombreCategoria ← "Electrónica Premium"
-        SI precio < 500000 ENTONCES
+        SI precio < 500000 Entonces
           ESCRIBIR "⚠️ Precio inusualmente bajo para Electrónica Premium."
-        FIN_SI
+        FinSi
       CASO 'B':
         nombreCategoria ← "Electrodomésticos"
       CASO 'C':
         nombreCategoria ← "Ropa y Accesorios"
       CASO 'D':
         nombreCategoria ← "Alimentos y Bebidas"
-        SI stockUnidades < 10 ENTONCES
+        SI stockUnidades < 10 Entonces
           ESCRIBIR "🔔 Alerta: Stock bajo en Alimentos. Reabastecer pronto."
-        FIN_SI
+        FinSi
       CASO 'E':
         nombreCategoria ← "Libros y Papelería"
-      DE_OTRO_MODO:
+      De Otro Modo:
         nombreCategoria ← "Categoría Desconocida"
         ESCRIBIR "❌ El código '", codigoCategoria, "' no es válido."
-    FIN_SEGÚN
+    FinSegun
     
     ESCRIBIR "─────────────────────────────────"
     ESCRIBIR "Categoría:  ", nombreCategoria
@@ -262,7 +262,7 @@ ALGORITMO ClasificacionProducto
 
 ---
 
-### Ejemplo 3: Menú de sistema con SEGÚN + condicionales combinadas
+### Ejemplo 3: Menú de sistema con Segun + condicionales combinadas
 
 ```
 ALGORITMO MenuSistema
@@ -286,40 +286,40 @@ ALGORITMO MenuSistema
     ESCRIBIR "4. Salir"
     LEER opcion
     
-    SEGÚN opcion HACER
+    Segun opcion HACER
       CASO 1:
         ESCRIBIR "Su saldo actual es: $", saldoCuenta
       
       CASO 2:
         ESCRIBIR "Ingrese el monto a depositar: "
         LEER monto
-        SI monto > 0 ENTONCES
+        SI monto > 0 Entonces
           saldoCuenta ← saldoCuenta + monto
           ESCRIBIR "✅ Depósito exitoso. Nuevo saldo: $", saldoCuenta
-        SINO
+        Sino
           ESCRIBIR "❌ El monto debe ser mayor a cero."
-        FIN_SI
+        FinSi
       
       CASO 3:
         ESCRIBIR "Ingrese el monto a retirar: "
         LEER monto
-        SI monto <= 0 ENTONCES
+        SI monto <= 0 Entonces
           ESCRIBIR "❌ El monto debe ser mayor a cero."
-        SINO
-          SI monto > saldoCuenta ENTONCES
+        Sino
+          SI monto > saldoCuenta Entonces
             ESCRIBIR "❌ Saldo insuficiente. Disponible: $", saldoCuenta
-          SINO
+          Sino
             saldoCuenta ← saldoCuenta - monto
             ESCRIBIR "✅ Retiro exitoso. Nuevo saldo: $", saldoCuenta
-          FIN_SI
-        FIN_SI
+          FinSi
+        FinSi
       
       CASO 4:
         ESCRIBIR "Sesión cerrada. ¡Hasta pronto, ", usuario, "!"
       
-      DE_OTRO_MODO:
+      De Otro Modo:
         ESCRIBIR "❌ Opción inválida. Seleccione entre 1 y 4."
-    FIN_SEGÚN
+    FinSegun
   FIN
 ```
 
@@ -364,7 +364,7 @@ Esta evaluación es el **cierre del curso** y mide los resultados de aprendizaje
 
 ---
 
-### 🎯 PUNTO 1 — Estructura SEGÚN con menú de conversiones *(25 puntos)*
+### 🎯 PUNTO 1 — Estructura Segun con menú de conversiones *(25 puntos)*
 
 Diseña un algoritmo en pseudocódigo (e impleméntalo en PSeInt) que presente un **menú de conversiones de unidades**:
 
@@ -388,7 +388,7 @@ Diseña un algoritmo en pseudocódigo (e impleméntalo en PSeInt) que presente u
 
 ---
 
-### 🎯 PUNTO 2 — Combinación SEGÚN + Condicionales *(35 puntos)*
+### 🎯 PUNTO 2 — Combinación Segun + Condicionales *(35 puntos)*
 
 Una empresa de transporte cobra según la categoría del vehículo y la distancia recorrida:
 
@@ -430,15 +430,15 @@ ALGORITMO MayorDeTres
     LEER b
     LEER c
     
-    SI a > b ENTONCES
+    SI a > b Entonces
       ESCRIBIR "El mayor es: ", a
-    SINO
-      SI b > c ENTONCES
+    Sino
+      SI b > c Entonces
         ESCRIBIR "El mayor es: ", b
-      SINO
+      Sino
         ESCRIBIR "El mayor es: ", c
-      FIN_SI
-    FIN_SI
+      FinSi
+    FinSi
   FIN
 ```
 **Pista:** Prueba con `a=5, b=3, c=8`. ¿Qué muestra el algoritmo? ¿Qué debería mostrar?
@@ -475,16 +475,16 @@ El sistema debe:
 
 | Punto | Criterio | Valor |
 |---|---|---|
-| **1** | SEGÚN correcto con 5 casos + DE_OTRO_MODO | 10 |
+| **1** | Segun correcto con 5 casos + DE_OTRO_MODO | 10 |
 | **1** | Cálculos correctos y formato de salida | 10 |
 | **1** | Prueba de escritorio completa y sin errores | 5 |
-| **2** | SEGÚN con tarifas correctas por categoría | 15 |
+| **2** | Segun con tarifas correctas por categoría | 15 |
 | **2** | Condicionales de descuento y recargo correctas | 15 |
 | **2** | Liquidación detallada y prueba de escritorio | 5 |
 | **3a** | Argumento técnico claro y correcto | 7 |
 | **3b** | Error identificado + corrección + explicación | 7 |
 | **3c** | Ejemplos propios claros y pertinentes | 6 |
-| **4** | Sistema completo con SEGÚN + anidadas + notas | 15 |
+| **4** | Sistema completo con Segun + anidadas + notas | 15 |
 | **4** | 3 pruebas funcionales en PSeInt | 5 |
 | | **TOTAL** | **100** |
 

@@ -80,9 +80,9 @@ La **condicional simple** evalúa una condición. Si es **Verdadera**, ejecuta u
 ### 2.2 Estructura
 
 ```
-SI <condición> ENTONCES
+Si condicion Entonces
     // Instrucciones que se ejecutan solo si la condición es Verdadera
-FIN_SI
+FinSi
 ```
 
 ### 2.3 Diagrama de Flujo
@@ -106,19 +106,17 @@ FIN_SI
 
 **Ejemplo 1: Verificar si un número es positivo**
 ```
-ALGORITMO NumeroPositivo
-  VAR
-    numero : REAL
-  INICIO
-    ESCRIBIR "Ingrese un número: "
-    LEER numero
+Algoritmo NumeroPositivo
+    Definir numero Como Real
+    Escribir "Ingrese un número: "
+    Leer numero
     
-    SI numero > 0 ENTONCES
-      ESCRIBIR "El número es positivo."
-    FIN_SI
+    Si numero > 0 Entonces
+        Escribir "El número es positivo."
+    FinSi
     
-    ESCRIBIR "Fin del programa."
-  FIN
+    Escribir "Fin del programa."
+FinAlgoritmo
 ```
 
 **Prueba de escritorio:**
@@ -132,24 +130,21 @@ ALGORITMO NumeroPositivo
 
 **Ejemplo 2: Descuento por membresía**
 ```
-ALGORITMO DescuentoMembresia
-  VAR
-    precio       : REAL
-    esMiembro    : BOOLEAN
-    precioFinal  : REAL
-  INICIO
-    LEER precio
-    LEER esMiembro
+Algoritmo DescuentoMembresia
+    Definir precio, precioFinal Como Real
+    Definir esMiembro Como Logico
+    Leer precio
+    Leer esMiembro
     
-    precioFinal ← precio
+    precioFinal <- precio
     
-    SI esMiembro == Verdadero ENTONCES
-      precioFinal ← precio * 0.85    // 15% de descuento
-      ESCRIBIR "¡Descuento aplicado!"
-    FIN_SI
+    Si esMiembro = Verdadero Entonces
+        precioFinal <- precio * 0.85    // 15% de descuento
+        Escribir "¡Descuento aplicado!"
+    FinSi
     
-    ESCRIBIR "Precio final: ", precioFinal
-  FIN
+    Escribir "Precio final: ", precioFinal
+FinAlgoritmo
 ```
 
 ---
@@ -163,11 +158,11 @@ La **condicional compuesta** evalúa una condición. Si es **Verdadera**, ejecut
 ### 3.2 Estructura
 
 ```
-SI <condición> ENTONCES
+Si condicion Entonces
     // Instrucciones si la condición es Verdadera
-SINO
+Sino
     // Instrucciones si la condición es Falsa
-FIN_SI
+FinSi
 ```
 
 ### 3.3 Diagrama de Flujo
@@ -191,59 +186,52 @@ FIN_SI
 
 **Ejemplo 1: Aprobar o reprobar**
 ```
-ALGORITMO AprobarReprobar
-  VAR
-    nota    : REAL
-    estado  : CADENA
-  INICIO
-    ESCRIBIR "Ingrese la nota (0-100): "
-    LEER nota
+Algoritmo AprobarReprobar
+    Definir nota Como Real
+    Definir estado Como Caracter
+    Escribir "Ingrese la nota (0-100): "
+    Leer nota
     
-    SI nota >= 60 ENTONCES
-      estado ← "APROBADO"
-    SINO
-      estado ← "REPROBADO"
-    FIN_SI
+    Si nota >= 60 Entonces
+        estado <- "APROBADO"
+    Sino
+        estado <- "REPROBADO"
+    FinSi
     
-    ESCRIBIR "El estudiante está: ", estado
-  FIN
+    Escribir "El estudiante está: ", estado
+FinAlgoritmo
 ```
 
 **Ejemplo 2: Número par o impar**
 ```
-ALGORITMO ParOImpar
-  VAR
-    numero : ENTERO
-  INICIO
-    ESCRIBIR "Ingrese un número entero: "
-    LEER numero
+Algoritmo ParOImpar
+    Definir numero Como Entero
+    Escribir "Ingrese un número entero: "
+    Leer numero
     
-    SI (numero MOD 2) == 0 ENTONCES
-      ESCRIBIR numero, " es PAR"
-    SINO
-      ESCRIBIR numero, " es IMPAR"
-    FIN_SI
-  FIN
+    Si numero MOD 2 = 0 Entonces
+        Escribir numero, " es PAR"
+    Sino
+        Escribir numero, " es IMPAR"
+    FinSi
+FinAlgoritmo
 ```
 
 **Ejemplo 3: Mayor de los dos números**
 ```
-ALGORITMO MayorDeDos
-  VAR
-    a, b  : REAL
-    mayor : REAL
-  INICIO
-    LEER a
-    LEER b
+Algoritmo MayorDeDos
+    Definir a, b, mayor Como Real
+    Leer a
+    Leer b
     
-    SI a > b ENTONCES
-      mayor ← a
-    SINO
-      mayor ← b
-    FIN_SI
+    Si a > b Entonces
+        mayor <- a
+    Sino
+        mayor <- b
+    FinSi
     
-    ESCRIBIR "El mayor es: ", mayor
-  FIN
+    Escribir "El mayor es: ", mayor
+FinAlgoritmo
 ```
 
 ---
@@ -257,19 +245,19 @@ Una **condicional anidada** es aquella en la que dentro del bloque `ENTONCES` o 
 ### 4.2 Estructura
 
 ```
-SI <condición1> ENTONCES
-    SI <condición2> ENTONCES
-        // Bloque A (condición1 V y condición2 V)
-    SINO
-        // Bloque B (condición1 V y condición2 F)
-    FIN_SI
-SINO
-    SI <condición3> ENTONCES
-        // Bloque C (condición1 F y condición3 V)
-    SINO
+Si condicion1 Entonces
+    Si condicion2 Entonces
+        // Bloque A (condicion1 V y condicion2 V)
+    Sino
+        // Bloque B (condicion1 V y condicion2 F)
+    FinSi
+Sino
+    Si condicion3 Entonces
+        // Bloque C (condicion1 F y condicion3 V)
+    Sino
         // Bloque D (ambas falsas)
-    FIN_SI
-FIN_SI
+    FinSi
+FinSi
 ```
 
 > ⚠️ **Regla de oro del anidamiento:** Cada `SI` debe tener su propio `FIN_SI`. El indentado (sangría) es clave para leer el código correctamente.
@@ -280,46 +268,44 @@ Antes de anidar, considera si dos condiciones relacionadas pueden expresarse en 
 
 ```
 // Con anidamiento:
-SI edad >= 18 ENTONCES
-    SI tieneCarnet == Verdadero ENTONCES
-        ESCRIBIR "Puede ingresar"
-    FIN_SI
-FIN_SI
+Si edad >= 18 Entonces
+    Si tieneCarnet = Verdadero Entonces
+        Escribir "Puede ingresar"
+    FinSi
+FinSi
 
 // Con condición compuesta (equivalente, más conciso):
-SI (edad >= 18) AND (tieneCarnet == Verdadero) ENTONCES
-    ESCRIBIR "Puede ingresar"
-FIN_SI
+Si edad >= 18 Y tieneCarnet = Verdadero Entonces
+    Escribir "Puede ingresar"
+FinSi
 ```
 
 ### 4.4 Ejemplos
 
 **Ejemplo 1: Clasificar el rendimiento de un estudiante**
 ```
-ALGORITMO ClasificarRendimiento
-  VAR
-    nota        : REAL
-    clasificacion : CADENA
-  INICIO
-    ESCRIBIR "Ingrese la nota (0-100): "
-    LEER nota
+Algoritmo ClasificarRendimiento
+    Definir nota Como Real
+    Definir clasificacion Como Caracter
+    Escribir "Ingrese la nota (0-100): "
+    Leer nota
     
-    SI nota >= 90 ENTONCES
-      clasificacion ← "Excelente"
-    SINO
-      SI nota >= 75 ENTONCES
-        clasificacion ← "Bueno"
-      SINO
-        SI nota >= 60 ENTONCES
-          clasificacion ← "Regular (Aprobado)"
-        SINO
-          clasificacion ← "Insuficiente (Reprobado)"
-        FIN_SI
-      FIN_SI
-    FIN_SI
+    Si nota >= 90 Entonces
+        clasificacion <- "Excelente"
+    Sino
+        Si nota >= 75 Entonces
+            clasificacion <- "Bueno"
+        Sino
+            Si nota >= 60 Entonces
+                clasificacion <- "Regular (Aprobado)"
+            Sino
+                clasificacion <- "Insuficiente (Reprobado)"
+            FinSi
+        FinSi
+    FinSi
     
-    ESCRIBIR "Clasificación: ", clasificacion
-  FIN
+    Escribir "Clasificación: ", clasificacion
+FinAlgoritmo
 ```
 
 **Tabla de prueba de escritorio:**
@@ -333,35 +319,32 @@ ALGORITMO ClasificarRendimiento
 
 **Ejemplo 2: Calcular tarifa de taxi según horario y distancia**
 ```
-ALGORITMO TarifaTaxi
-  VAR
-    hora      : ENTERO
-    distancia : REAL
-    tarifa    : REAL
-  INICIO
-    ESCRIBIR "Hora del viaje (0-23): "
-    LEER hora
-    ESCRIBIR "Distancia en km: "
-    LEER distancia
+Algoritmo TarifaTaxi
+    Definir hora Como Entero
+    Definir distancia, tarifa Como Real
+    Escribir "Hora del viaje (0-23): "
+    Leer hora
+    Escribir "Distancia en km: "
+    Leer distancia
     
-    SI hora >= 6 AND hora <= 20 ENTONCES
-      // Horario diurno
-      SI distancia <= 5 ENTONCES
-        tarifa ← distancia * 1500
-      SINO
-        tarifa ← 7500 + (distancia - 5) * 1200
-      FIN_SI
-    SINO
-      // Horario nocturno (recargo del 30%)
-      SI distancia <= 5 ENTONCES
-        tarifa ← distancia * 1500 * 1.30
-      SINO
-        tarifa ← (7500 + (distancia - 5) * 1200) * 1.30
-      FIN_SI
-    FIN_SI
+    Si hora >= 6 Y hora <= 20 Entonces
+        // Horario diurno
+        Si distancia <= 5 Entonces
+            tarifa <- distancia * 1500
+        Sino
+            tarifa <- 7500 + (distancia - 5) * 1200
+        FinSi
+    Sino
+        // Horario nocturno (recargo del 30%)
+        Si distancia <= 5 Entonces
+            tarifa <- distancia * 1500 * 1.30
+        Sino
+            tarifa <- (7500 + (distancia - 5) * 1200) * 1.30
+        FinSi
+    FinSi
     
-    ESCRIBIR "Tarifa del viaje: $", tarifa
-  FIN
+    Escribir "Tarifa del viaje: $", tarifa
+FinAlgoritmo
 ```
 
 ---
@@ -380,8 +363,7 @@ ALGORITMO TarifaTaxi
 
 > ### ⚡ RETO MAESTRO — "Sistema de Evaluación Académica"
 > **Tiempo estimado:** 120-150 minutos  
-> **Modalidad:** Individual  
-> **Nivel:** ⭐⭐⭐⭐ Alto
+> **Modalidad:** Parejas
 
 Esta actividad recopila y aplica **todos los conocimientos adquiridos en las clases 1, 2 y 3**:  
 Lógica → Variables → Tipos de datos → Pseudocódigo → Prueba de escritorio → Condicionales simples, compuestas y anidadas.
@@ -390,7 +372,7 @@ Lógica → Variables → Tipos de datos → Pseudocódigo → Prueba de escrito
 
 ### 📌 Contexto del Problema
 
-Eres el programador del **Sistema de Evaluación del SENA**. Debes diseñar un algoritmo completo que procese la información de un aprendiz y genere un reporte de su rendimiento académico.
+Eres el programador del **Sistema de Evaluación del CENSA**. Debes diseñar un algoritmo completo que procese la información de un aprendiz y genere un reporte de su rendimiento académico.
 
 ---
 
@@ -474,7 +456,7 @@ El algoritmo debe mostrar en pantalla un reporte estructurado como este:
 1. Implementa el algoritmo completo en **PSeInt**.
 2. Ejecuta con al menos **3 conjuntos de datos distintos** que prueben todos los caminos posibles del algoritmo.
 3. Captura pantalla de cada ejecución.
-4. Responde en tu cuaderno:
+4. Responde en un pdf y adjunta cada captura de pantalla:
    - ¿Cuántos caminos de ejecución posibles tiene tu algoritmo? ¿Por qué?
    - ¿Qué sucede si las 3 notas son iguales? ¿Tu algoritmo lo maneja correctamente?
    - ¿Podrías reescribir alguna de tus condicionales anidadas usando operadores AND/OR? Muestra el ejemplo.
@@ -499,6 +481,4 @@ El algoritmo debe mostrar en pantalla un reporte estructurado como este:
 
 > 🏅 **Bonus (+5 puntos):** Modifica el algoritmo para que procese **3 aprendices** consecutivos (3 veces el proceso completo) y al final muestre cuál de los tres obtuvo el mayor promedio.
 
----
 
-> 📝 **Nota del Docente:** Esta actividad integradora está diseñada para que el estudiante demuestre dominio completo de los fundamentos algorítmicos. El nivel de exigencia es alto: las fases 3 y 5 (análisis de caminos y reflexión técnica) son las que diferencian un desempeño básico de uno sobresaliente. Proporcione retroalimentación detallada sobre la calidad del pseudocódigo y la corrección de las condicionales anidadas.
